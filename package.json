@@ -1,0 +1,23 @@
+{
+  "name": "jang-portfolio-passkey",
+  "version": "1.0.0",
+  "description": "공개 소개 페이지 + 패스키(WebAuthn)로 잠근 비공개 영역",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test:e2e": "node test/passkey-e2e.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@simplewebauthn/server": "^13.3.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

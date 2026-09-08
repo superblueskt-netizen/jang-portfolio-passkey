@@ -1,0 +1,189 @@
+:root {
+  --bg: #f7f6f3;
+  --panel: #ffffff;
+  --ink: #1c1b19;
+  --ink-dim: #5f5c56;
+  --line: #e3e0d9;
+  --accent: #2f5d50;
+  --accent-soft: #e8f0ed;
+  --lock: #8a6d2f;
+  --lock-soft: #fbf3e0;
+  --danger: #a33a2d;
+  --ok: #2f6b3a;
+  --radius: 14px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Pretendard", "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 80px; }
+
+/* ── 머리말 ───────────────────────────────────────────── */
+header.hero {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: .12em;
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+h1 { font-size: clamp(28px, 5vw, 40px); margin: 0 0 12px; line-height: 1.3; }
+.lede { font-size: 17px; color: var(--ink-dim); margin: 0; max-width: 46em; }
+
+/* ── 구역 공통 ─────────────────────────────────────────── */
+section { padding: 40px 0 8px; }
+h2 { font-size: 22px; margin: 0 0 6px; }
+h3 { font-size: 17px; margin: 0 0 6px; }
+.section-note { color: var(--ink-dim); font-size: 14px; margin: 0 0 20px; }
+
+.cards { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.card p { margin: 6px 0 0; font-size: 15px; color: var(--ink-dim); }
+.card .num { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+
+.flow { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.flow li {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.facts { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); padding: 0; margin: 0; list-style: none; }
+.facts li { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-size: 15px; }
+.facts b { display: block; font-size: 12px; color: var(--ink-dim); font-weight: 600; }
+
+/* ── 공개/비공개 경계선 ──────────────────────────────────── */
+.boundary {
+  margin: 56px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--lock);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.boundary::before, .boundary::after {
+  content: "";
+  flex: 1;
+  height: 0;
+  border-top: 2px dashed var(--lock);
+  opacity: .5;
+}
+.zone-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.zone-tag.public { background: var(--accent-soft); color: var(--accent); }
+.zone-tag.private { background: var(--lock-soft); color: var(--lock); }
+
+/* ── 비공개 구역 ───────────────────────────────────────── */
+#private-zone {
+  background: var(--lock-soft);
+  border: 2px dashed rgba(138, 109, 47, .45);
+  border-radius: 18px;
+  padding: 28px 24px;
+  margin-top: 18px;
+}
+
+.lock-face { text-align: center; padding: 20px 8px; }
+.lock-face .icon { font-size: 40px; }
+.lock-face p { color: var(--ink-dim); max-width: 34em; margin: 8px auto 20px; }
+
+.btn {
+  font: inherit;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  padding: 11px 20px;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.small { padding: 6px 12px; font-size: 13px; border-radius: 8px; }
+.btn.danger { background: transparent; border-color: var(--danger); color: var(--danger); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+.row.left { justify-content: flex-start; }
+
+select, input[type="text"] {
+  font: inherit;
+  padding: 9px 12px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.status {
+  margin-top: 16px;
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  background: #fff;
+  border: 1px solid var(--line);
+  white-space: pre-wrap;
+}
+.status.ok { border-color: var(--ok); color: var(--ok); }
+.status.err { border-color: var(--danger); color: var(--danger); }
+.status:empty { display: none; }
+
+.private-item {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.private-item .kind { font-size: 12px; font-weight: 700; color: var(--lock); }
+.private-item p { margin: 4px 0 0; color: var(--ink-dim); font-size: 15px; }
+
+table.keys { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; border-radius: 12px; overflow: hidden; }
+table.keys th, table.keys td { border-bottom: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+table.keys th { background: #faf8f4; font-size: 12px; color: var(--ink-dim); }
+.mono { font-family: var(--mono); font-size: 12px; word-break: break-all; color: var(--ink-dim); }
+
+.log {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: #1e1d1b;
+  color: #d8d4cc;
+  border-radius: 12px;
+  padding: 14px;
+  max-height: 320px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+details.evidence { margin-top: 18px; }
+details.evidence summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--ink-dim); }
+
+footer { border-top: 1px solid var(--line); margin-top: 56px; padding-top: 20px; font-size: 13px; color: var(--ink-dim); }
+.hidden { display: none !important; }

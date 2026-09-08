@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>장성혁 — 소개 페이지</title>
+<meta name="description" content="깊이 보고, 새롭게 발견하고, 다르게 생각합니다. 공개 소개 페이지와 패스키로 잠근 비공개 영역.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/styles.css">
+<!--
+  ※ 이 파일의 '공개 영역'은 1번 과제(포트폴리오 소개 페이지)의 내용을 그대로 옮겨 온 것입니다.
+    문구를 1번 과제 페이지와 완전히 똑같이 맞추고 싶으면 아래 <section id="public-zone"> 안의
+    텍스트만 교체하면 됩니다. 비공개 영역 코드는 건드릴 필요가 없습니다.
+  ※ 이 HTML 어디에도 비공개 내용은 들어 있지 않습니다.
+    비공개 내용은 로그인에 성공한 뒤 /api/private/notes 응답으로만 내려옵니다. (T08-C18)
+-->
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">PORTFOLIO · 공개 영역</p>
+    <h1>깊이 보고, 새롭게 발견하고, 다르게 생각합니다</h1>
+    <p class="lede">
+      장성혁의 소개 페이지입니다. 아래 공개 영역은 누구나 볼 수 있고,
+      맨 아래 비공개 영역만 패스키로 잠겨 있습니다. 이 페이지에는 비밀번호 입력칸이 없습니다.
+    </p>
+  </header>
+
+  <!-- ===================== 공개 영역 (1번 과제 내용) ===================== -->
+  <section id="public-zone">
+    <h2>세 가지 강점 <span class="zone-tag public">공개</span></h2>
+    <p class="section-note">누구나 볼 수 있는 내용입니다.</p>
+    <div class="cards">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>깊이 관찰합니다</h3>
+        <p>겉으로 드러난 결과보다 원인을 먼저 찾습니다. 가로 스크롤이 생겼을 때
+           눈에 보이는 요소를 지우는 대신, 요소의 위치를 하나씩 되짚어 원인을 찾아 고쳤습니다.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>새롭게 발견합니다</h3>
+        <p>익숙한 자리에서 다른 쓸모를 찾습니다. 카페를 음료 파는 곳이 아니라
+           음료·음악·공기가 함께 오는 경험의 자리로 다시 정의해 보았습니다.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>다르게 생각합니다</h3>
+        <p>원래 하던 방식보다 더 나은 방식을 먼저 봅니다. 문제를 쓰는 사람 기준으로
+           다시 적고, 기본값을 따르기 전에 두세 가지 길을 나란히 비교합니다.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:40px">나의 사고 흐름 <span class="zone-tag public">공개</span></h2>
+    <p class="section-note">문제를 만나면 이 순서로 움직입니다.</p>
+    <ul class="flow">
+      <li>① 깊이 관찰</li>
+      <li>② 새롭게 관찰</li>
+      <li>③ 다르게 생각</li>
+      <li>④ 실행</li>
+      <li>⑤ 확인하고 다듬기</li>
+    </ul>
+
+    <h2 style="margin-top:40px">배경 <span class="zone-tag public">공개</span></h2>
+    <ul class="facts">
+      <li><b>지역</b>경기 이천</li>
+      <li><b>학습</b>웹 개발 · 게임 개발 과제 중심 과정</li>
+      <li><b>수료</b>한옥학교 목공 과정</li>
+      <li><b>지금 하는 일</b>만든 것을 스스로 점검하는 습관 들이기</li>
+    </ul>
+    <p class="section-note" style="margin-top:14px">
+      공개 영역에는 전화번호·이메일·신분증 번호 같은 개인정보를 두지 않았습니다.
+    </p>
+  </section>
+
+  <!-- ===================== 경계선 ===================== -->
+  <div class="boundary">여기부터 비공개 영역 — 패스키로 잠겨 있습니다</div>
+
+  <!-- ===================== 비공개 영역 ===================== -->
+  <section id="private-zone" aria-live="polite">
+    <h2 style="margin-top:0">나만 보는 자리 <span class="zone-tag private">비공개</span></h2>
+
+    <!-- (A) 잠긴 상태 -->
+    <div id="locked-view">
+      <div class="lock-face">
+        <div class="icon" aria-hidden="true">🔒</div>
+        <p>
+          이 자리의 내용은 지금 화면에도, 페이지 소스에도 들어 있지 않습니다.
+          패스키로 확인된 뒤에만 서버가 내용을 내려보냅니다.
+          <br><strong>비밀번호는 사용하지 않습니다.</strong>
+        </p>
+        <div class="row">
+          <button class="btn" id="btn-login">🔑 패스키로 열기</button>
+          <button class="btn ghost" id="btn-show-register">패스키 등록하기</button>
+        </div>
+
+        <div id="register-box" class="hidden" style="margin-top:18px">
+          <div class="row">
+            <label for="user-select">계정</label>
+            <select id="user-select">
+              <option value="jang">jang — 본인 계정</option>
+              <option value="mentor">mentor — 두 번째 검증용 계정</option>
+            </select>
+            <input type="text" id="key-label" placeholder="패스키 이름 (예: 노트북 크롬)" size="24">
+            <button class="btn small" id="btn-register">이 계정에 패스키 등록</button>
+          </div>
+          <p class="section-note" style="margin-top:10px">
+            등록하면 기기가 열쇠 한 쌍을 만듭니다. 서버로는 <strong>공개키만</strong> 갑니다.
+            개인키는 기기 밖으로 나가지 않습니다.
+          </p>
+        </div>
+      </div>
+      <div class="status" id="locked-status"></div>
+    </div>
+
+    <!-- (B) 열린 상태 -->
+    <div id="unlocked-view" class="hidden">
+      <div class="row left" style="justify-content:space-between; margin-bottom:16px">
+        <div><strong id="who"></strong> <span class="mono" id="session-mask"></span></div>
+        <button class="btn ghost small" id="btn-logout">로그아웃</button>
+      </div>
+
+      <h3>비공개 항목 <span class="mono" id="item-count"></span></h3>
+      <p class="section-note">아래 내용은 과제용으로 만들어 넣은 가상 데이터입니다.</p>
+      <div id="private-items"></div>
+
+      <h3 style="margin-top:28px">등록된 패스키</h3>
+      <p class="section-note">서버에 저장된 값은 공개키입니다. 비밀번호도, 개인키도 아닙니다.</p>
+      <table class="keys">
+        <thead>
+          <tr><th>이름</th><th>등록한 날짜</th><th>서버에 저장된 값 (공개키, base64url)</th><th></th></tr>
+        </thead>
+        <tbody id="passkey-rows"></tbody>
+      </table>
+      <div class="row left" style="margin-top:12px">
+        <input type="text" id="key-label-2" placeholder="추가할 패스키 이름 (예: 휴대폰)" size="24">
+        <button class="btn small" id="btn-add-key">패스키 하나 더 등록</button>
+      </div>
+      <p class="section-note" style="margin-top:10px">
+        패스키가 하나도 남지 않으면 이 계정으로는 다시 들어올 수 없습니다.
+        그래서 마지막 하나를 지울 때는 한 번 더 확인합니다.
+      </p>
+      <div class="status" id="unlocked-status"></div>
+    </div>
+
+    <!-- (C) 요청·응답 기록 (증거용) -->
+    <details class="evidence">
+      <summary>이번 브라우저에서 오간 요청·응답 기록 보기 (세션 값은 가려집니다)</summary>
+      <div class="log" id="log">아직 기록이 없습니다.</div>
+    </details>
+  </section>
+
+  <footer>
+    <p>
+      공개 영역은 누구나 볼 수 있습니다. 비공개 영역은 패스키(WebAuthn)로만 열립니다.
+      비공개 영역의 내용은 전부 만들어 넣은 가상 데이터이며, 실제 연락처나 신분증 번호는 들어 있지 않습니다.
+    </p>
+  </footer>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
