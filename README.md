@@ -79,3 +79,5 @@ node test/screenshots.mjs   # 제출용 캡처 생성
 - 이 저장소에는 API 키, 토큰, 비밀번호가 들어 있지 않습니다. 저장소 접속 정보는 배포 환경변수로만 넣습니다.
 - 비공개 영역 내용(`src/data.js`)은 전부 과제용으로 지어낸 것입니다.
 - 기록에 남는 세션 값은 앞 네 글자만 남기고 가립니다.
+
+배포: https://jang-portfolio-passkey.vercel.app
