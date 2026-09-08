@@ -148,9 +148,13 @@ export function createApp() {
         userName: userId,
         userDisplayName: USERS[userId].displayName,
         attestationType: 'none',
+        timeout: 120000,
         // 같은 기기에 이미 등록된 패스키는 제외해서 두 번째 등록이 막히지 않게 한다.
         excludeCredentials: existing.map((c) => ({ id: c.id, transports: c.transports })),
         authenticatorSelection: {
+          // 기기 자체의 잠금(윈도우 Hello·지문·얼굴)을 먼저 쓰게 한다.
+          // 이 값을 빼면 윈도우가 USB 보안 키부터 물어보는 경우가 있다.
+          authenticatorAttachment: 'platform',
           residentKey: 'preferred',
           userVerification: 'preferred',
         },
